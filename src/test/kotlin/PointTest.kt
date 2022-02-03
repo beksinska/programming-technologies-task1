@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals
 
-class Test {
+class PointTest {
 
     @Test
     fun testPointsSum() {
