@@ -9,6 +9,11 @@ public class Item {
         this.price = price;
     }
 
+    @Override
+    public String toString() {
+        return "Name:" + name + ", " + "Price:" + price + ", " + "Code" + code;
+    }
+
     public String getName() {
         return name;
     }
@@ -27,5 +32,9 @@ public class Item {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 }

@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Objects;
 
-public class priceList {
-    ArrayList<Item> list = new ArrayList<>();
+public class PriceList {
+    private final ArrayList<Item> list = new ArrayList<>();
 
-    public priceList(Item newItem) {
+    PriceList(Item... i) {
+        Collections.addAll(list, i);
     }
 
     void add(Item i) {
@@ -20,9 +22,9 @@ public class priceList {
     }
 
     void changeName(int itemCode, String newName) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getCode() == itemCode) {
-                list.get(i).setName(newName);
+        for (Item item : list) {
+            if (item.getCode() == itemCode) {
+                item.setName(newName);
             }
         }
     }
@@ -32,19 +34,19 @@ public class priceList {
     }
 
     double purchasePrice(int itemCode, int quantity) {
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getCode() == itemCode) {
-                return list.get(i).getPrice() * quantity;
+        for (Item item : list) {
+            if (item.getCode() == itemCode) {
+                return item.getPrice() * quantity;
             }
         }
-        throw new NullPointerException("Product not found");
+        throw new NullPointerException("Item not found");
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        priceList priceList = (priceList) o;
+        PriceList priceList = (PriceList) o;
         return Objects.equals(list, priceList.list);
     }
 
