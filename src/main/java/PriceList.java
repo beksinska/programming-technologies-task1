@@ -5,8 +5,8 @@ import java.util.Objects;
 public class PriceList {
     private final ArrayList<Item> list = new ArrayList<>();
 
-    PriceList(Item... i) {
-        Collections.addAll(list, i);
+    PriceList(Item... b) {
+        Collections.addAll(list, b);
     }
 
     void add(Item i) {
